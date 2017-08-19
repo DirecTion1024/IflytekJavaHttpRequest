@@ -2,6 +2,8 @@ package com.homework.httprequest.methods;
 
 import java.util.Scanner;
 
+import com.homework.httprequest.util.LogUtil;
+
 public class NumberJudge {
 	/**
      *判断输入是否为数字，若不是则循环要求输入数字，若是则返回输入的数字 
@@ -17,6 +19,7 @@ public class NumberJudge {
 		int number = 0;
 		boolean flag = true;
 		System.out.println(str);
+		LogUtil.logDebug("开始判断输入是否为数字");
 		while (flag) {
 			try {
 				number = input.nextInt();// 如果输入的不是数字，则会抛出异常，进去catch语句块
@@ -27,6 +30,7 @@ public class NumberJudge {
 				input.nextLine();// 读入回车符，确保循环可以正常进行
 			}
 		}
-		return number;
+		LogUtil.logDebug("判断结束，返回数值："+number);
+		return number;	
 	}
 }

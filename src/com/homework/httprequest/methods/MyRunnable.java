@@ -3,6 +3,7 @@ package com.homework.httprequest.methods;
 
 import java.util.Date;
 import com.homework.httprequest.timer.FlagTimer;
+import com.homework.httprequest.util.LogUtil;
 import com.homework.httprequest.util.ParamUtil;
 
 public class MyRunnable implements Runnable{
@@ -23,7 +24,10 @@ public class MyRunnable implements Runnable{
 			ParamUtil.requesttime = ParamUtil.requesttime + SubDate.subdate(startdate, enddate);
 			ParamUtil.count = ParamUtil.count + 1;
 			try {
+				LogUtil.logDebug("开始获取返回码");
 				String str = result.substring(result.indexOf("\"code"), 14);
+				LogUtil.logDebug("获取到的返回码为："+str);
+				LogUtil.logDebug("开始判断接口返回结果");
 				if(str.replace("\"code\":", "").equals("\"0000\"")){
 					System.out.println("success"+"   "+"接口响应时间：" + SubDate.subdate(startdate, enddate)+"毫秒");
 					WriteResult.writeresult("F:/result.txt", "success"+"   "+"接口响应时间：" + SubDate.subdate(startdate, enddate)+"毫秒"+"\n");

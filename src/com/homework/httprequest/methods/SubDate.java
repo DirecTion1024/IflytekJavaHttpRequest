@@ -3,6 +3,8 @@ package com.homework.httprequest.methods;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.homework.httprequest.util.LogUtil;
 public class SubDate {
 	/**
      * 计算请求时长
@@ -18,8 +20,11 @@ public class SubDate {
 		Date d1 = null;
         Date d2 = null;
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		LogUtil.logDebug("开始转换时间格式");
 		String start = format.format(startdate);
 		String end = format.format(enddate);
+		LogUtil.logDebug("开始时间为："+ start +"结束时间为：" + end);
+		LogUtil.logDebug("开始计算请求时差");
 		try {
 			d1 = format.parse(start);
 			d2 = format.parse(end);			
@@ -28,6 +33,7 @@ public class SubDate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		LogUtil.logDebug("请求时长为： "+diff);
 		return diff;
 	}
 }

@@ -3,6 +3,8 @@ package com.homework.httprequest.methods;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.homework.httprequest.util.LogUtil;
+
 public class WriteResult {
 	/**
      * 向文件中追加写入测试结果
@@ -14,6 +16,7 @@ public class WriteResult {
      */
 	 public static void writeresult(String fileName, String content) {   
 	        FileWriter writer = null;  
+	        LogUtil.logDebug("开始向文件中追加写入结果");
 	        try {     
 	            // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件     
 	            writer = new FileWriter(fileName, true);     
@@ -28,7 +31,8 @@ public class WriteResult {
 	            } catch (IOException e) {     
 	                e.printStackTrace();     
 	            }     
-	        }   
+	        }
+	        LogUtil.logDebug("结果写入完毕");
 	    }
 
 }
