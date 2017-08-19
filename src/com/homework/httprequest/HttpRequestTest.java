@@ -27,5 +27,6 @@ public class HttpRequestTest {
 		}
 		ResultTimer.resulttimer();
 		executor.shutdown();
+		System.out.println("add endinfomation");
 	}
 }
